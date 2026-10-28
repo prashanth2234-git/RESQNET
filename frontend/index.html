@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESQNET | Disaster Assistance &amp; Response Coordination Platform</title>
+    <meta name="description" content="Operational disaster assistance platform enabling citizens to submit requests offline or online, and authorized coordinators to triage, prioritize, and dispatch responders." />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-resq-bg text-resq-text min-h-screen antialiased selection:bg-resq-blue selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then((reg) => {
+            console.log('RESQNET Service Worker registered:', reg.scope);
+          }).catch((err) => {
+            console.warn('Service Worker registration skipped or failed:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
